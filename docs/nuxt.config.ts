@@ -29,8 +29,13 @@ export default defineNuxtConfig({
       'DM+Sans': [400, 500, 600, 700],
     },
   },
+  experimental: {
+    headNext: true
+  },
   nitro: {
     prerender: {
+      // work around https://github.com/nuxt/nuxt/issues/22763
+      concurrency: 1,
       routes: ['/api/search.json']
     }
   },
